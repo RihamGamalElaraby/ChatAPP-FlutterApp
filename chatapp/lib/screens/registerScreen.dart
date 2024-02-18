@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class RegisterScreen extends StatefulWidget {
-  RegisterScreen({super.key});
+  const RegisterScreen({super.key});
 
   static String id = 'RegisterScreen';
 
@@ -32,7 +32,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: Scaffold(
           backgroundColor: primaryColor,
           body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: SingleChildScrollView(
               child: Form(
                 key: formKey,
@@ -40,7 +40,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     SizedBox(
@@ -49,7 +49,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: Image.asset(
                           'assets/images/chat.png',
                         )),
-                    Text(
+                    const Text(
                       'Chat',
                       style: TextStyle(
                         color: Colors.white,
@@ -57,7 +57,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Row(
+                    const Row(
                       children: [
                         Text(
                           'REGISTER',
@@ -75,7 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                       hintText: 'Email',
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     DefultCustomTextFormField(
@@ -84,7 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                       hintText: 'Passwod',
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     CustomButton(
@@ -106,13 +106,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                       text: 'Register',
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'Already hanv an account ?',
                           style: TextStyle(
                             color: Colors.white,
@@ -122,7 +122,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           onTap: () {
                             Navigator.pushNamed(context, LoginScreen.id);
                           },
-                          child: Text(
+                          child: const Text(
                             '  lOGIN',
                             style: TextStyle(
                               color: Colors.white,

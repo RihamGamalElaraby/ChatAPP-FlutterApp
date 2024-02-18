@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DefultCustomTextFormField extends StatelessWidget {
-  DefultCustomTextFormField({this.hintText, this.onChanged});
+  DefultCustomTextFormField({super.key, this.hintText, this.onChanged});
   String? hintText;
   Function(String)? onChanged;
 
@@ -12,17 +12,18 @@ class DefultCustomTextFormField extends StatelessWidget {
         if (data!.isEmpty) {
           return 'Field is empty';
         }
+        return null;
       },
       onChanged: onChanged,
       decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: TextStyle(color: Colors.white),
-          focusedBorder: OutlineInputBorder(
+          hintStyle: const TextStyle(color: Colors.white),
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.lightBlue)),
           enabledBorder:
-              OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+              const OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
           border:
-              OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),
+              const OutlineInputBorder(borderSide: BorderSide(color: Colors.white))),
     );
   }
 }

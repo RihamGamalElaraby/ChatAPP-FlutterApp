@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ Future<void> Register(
         email: email, password: password);
     print(user.user!.displayName);
     ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text('Done Created')));
+        .showSnackBar(const SnackBar(content: Text('Done Created')));
   } on FirebaseException catch (e) {
     print(e);
     ScaffoldMessenger.of(context)
@@ -29,10 +30,19 @@ Future<void> Login(
         await auth.signInWithEmailAndPassword(email: email, password: password);
     print(user.user!.displayName);
     ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text('Done Login')));
+        .showSnackBar(const SnackBar(content: Text('Done Login')));
   } on FirebaseException catch (e) {
     print(e);
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(e.toString())));
   }
+}
+
+Future<void> firestoreAddMessage({required messege}) async {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  CollectionReference messeges =
+      FirebaseFirestore.instance.collection('messeges');
+  messeges.add({
+    'messege': messege,
+  });
 }
