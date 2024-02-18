@@ -1,26 +1,53 @@
+import 'package:chatapp/models/massegeModel.dart';
 import 'package:flutter/material.dart';
 
 import 'Constant.dart';
 
 class ChatBubble extends StatelessWidget {
-  const ChatBubble({super.key});
-
+  ChatBubble({required this.message});
+  final Message message;
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
       child: Container(
-          padding: const EdgeInsets.only(left: 16, top: 16, bottom: 16, right: 16),
+          padding: EdgeInsets.only(left: 16, top: 16, bottom: 16, right: 16),
           // alignment: Alignment.centerLeft,
-          margin: const EdgeInsets.all(8),
-          decoration: const BoxDecoration(
+          margin: EdgeInsets.all(8),
+          decoration: BoxDecoration(
               color: primaryColor,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(35),
                   topRight: Radius.circular(35),
                   bottomRight: Radius.circular(35))),
-          child: const Text(
-            'userrrrrususerrrrruserrrrruserrrrrerrrrruserrrrr',
+          child: Text(
+            message.message,
+            style: TextStyle(color: Colors.white, fontSize: 18),
+          )),
+    );
+  }
+}
+
+class ChatBubbleForFriend extends StatelessWidget {
+  ChatBubbleForFriend({required this.message});
+  final Message message;
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: Container(
+          padding: EdgeInsets.only(left: 16, top: 16, bottom: 16, right: 16),
+          // alignment: Alignment.centerLeft,
+          margin: EdgeInsets.all(8),
+          decoration: BoxDecoration(
+              color: Color.fromARGB(255, 135, 138, 139),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(35),
+                topRight: Radius.circular(35),
+                bottomLeft: Radius.circular(35),
+              )),
+          child: Text(
+            message.message,
             style: TextStyle(color: Colors.white, fontSize: 18),
           )),
     );

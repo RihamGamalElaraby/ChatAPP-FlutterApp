@@ -83,6 +83,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         password = data;
                       },
                       hintText: 'Passwod',
+                      obscureText: true,
                     ),
                     const SizedBox(
                       height: 10,
@@ -102,7 +103,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         setState(() {
                           isLoading = false;
                         });
-                        Navigator.pushNamed(context, ChatScreen.id);
+                        Navigator.pushNamed(context, ChatScreen.id,
+                            arguments: email);
                       },
                       text: 'Register',
                     ),

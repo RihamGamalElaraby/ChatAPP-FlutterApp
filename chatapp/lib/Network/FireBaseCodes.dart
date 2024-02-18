@@ -2,6 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+FirebaseFirestore firestore = FirebaseFirestore.instance;
+CollectionReference messages =
+    FirebaseFirestore.instance.collection('messages');
+
 Future<void> Register(
     {required String email,
     required String password,
@@ -38,11 +42,10 @@ Future<void> Login(
   }
 }
 
-Future<void> firestoreAddMessage({required messege}) async {
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
-  CollectionReference messeges =
-      FirebaseFirestore.instance.collection('messeges');
-  messeges.add({
-    'messege': messege,
-  });
+Future<void> firestoreAddMessage({required message, required email}) async {
+  messages.add({'message': message, 'createdAt': DateTime.now(), 'id': email});
+}
+
+Future<void> firestoreGetMessage() async {
+  QuerySnapshot querySnapshot = await messages.get();
 }
